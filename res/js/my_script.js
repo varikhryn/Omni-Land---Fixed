@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // only mobile
 
     // open pop-up Login
-    if (window.innerWidth > 1024) {
+    if (window.innerWidth <= 1024) {
         mobileBtnLogin.onclick = openPopUpLogin;
     }
 
