@@ -1,0 +1,17 @@
+User-Agent: *
+Disallow: /page13351289.html
+Disallow: /menu
+Disallow: /page13351349.html
+Disallow: /footer
+Disallow: /tilda/form*
+Disallow: /tilda/rec*
+Disallow: /tilda/click*
+Disallow: /tilda/scroll*
+Disallow: /tilda/popup*
+Disallow: /tilda/cart*
+Disallow: /tilda/product*
+Disallow: /tilda/event*
+Disallow: /*_escaped_fragment_*
+Disallow:
+Sitemap: http://omni-test.tilda.ws/sitemap.xml
+Host: omni-test.tilda.ws
