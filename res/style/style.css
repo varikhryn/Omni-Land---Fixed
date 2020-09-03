@@ -175,6 +175,7 @@ body{
 
 .form__title h1{
     font-family: 'Yeseva One', cursive;
+    font-style: normal;
     font-size: calc(30px + 10 * (100vw / 1400));
     color: #2B4362;
 }
