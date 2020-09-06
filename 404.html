@@ -297,6 +297,158 @@
     </div>
     <!-- pop-up registration end -->
 
+    <!-- pop-up registration start -->
+    <div class="my-pop-up__autorizade" id="section__pop-up__registration">
+        <div class="my-pop-up__autorizade__wrapper">
+            <div class="form section__form__registration">
+                <div class="form__wrapper">
+                    <div class="form__title">
+                        <h1>Регистрация</h1>
+                        <div class="close__pop-up" id="close__pop-up__registration"></div>
+                    </div>
+
+                    <div class="ask-account">
+                        <p>Уже есть аккаунт? <a href="#btn__open__login" id="link__for_login">Войдите</a></p>
+                    </div>
+
+                    <form action=" POST" id="form-registration" novalidate>
+
+                        <!-- name -->
+                        <div class="section-all-input section-name-input">
+                            <div class="section-all-input__wrapper">
+                                <label for="registration-name">Ваше имя</label>
+                                <img src="res/img/svg/name.svg" alt="name" width="14px" height="14px">
+                                <input id="registration-name" name="registration-name" type="text"
+                                    placeholder="Ваше имя">
+                            </div>
+                            <div class="input-mail-error__message">
+                                <p>Введите корректное имя</p>
+                            </div>
+                        </div>
+
+                        <!-- email -->
+                        <div class="section-all-input section-email-input">
+                            <div class="section-all-input__wrapper">
+                                <label for="registration-email">Email</label>
+                                <img src="res/img/svg/email.svg" alt="name" width="14px" height="11px">
+                                <input id="registration-email" name="registration-email" type="email"
+                                    placeholder="Email">
+                            </div>
+                            <div class="input-mail-error__message">
+                                <p>Заполните поле "E-mail"</p>
+                            </div>
+                        </div>
+
+                        <!-- pass -->
+                        <div class="section-all-input section-password-input">
+                            <div class="section-all-input__wrapper">
+                                <label for="registration-password">Ваш пароль</label>
+                                <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
+                                <input id="registration-password" name="registration-password" type="password"
+                                    placeholder="Ваш пароль">
+                            </div>
+                            <div class="input-pass-error__message">
+                                <p>Заполните поле "Пароль"</p>
+                            </div>
+                        </div>
+
+                        <!-- repeat pass -->
+                        <div class="section-all-input section-repeat-passport-input">
+                            <div class="section-all-input__wrapper">
+                                <label for="registration-repeat-password">Подтвердите пароль</label>
+                                <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
+                                <input id="registration-repeat-password" name="registration-repeat-password"
+                                    type="password" placeholder="Подтвердите пароль">
+                            </div>
+                            <div class="input-pass-repeat-error__message">
+                                <p>Повторите пароль</p>
+                            </div>
+                        </div>
+
+                        <div class="form-messanger">
+                            <div class="form-messanger__title">
+                                <p>Мессенджер для связи <span class="color-red">*</span></p>
+                            </div>
+
+                            <div class="form-messanger__radio">
+                                <!-- item 1 -->
+                                <div class="form-messanger__radio__item section-radio-telegram-input">
+                                    <label>
+                                        <input class="choose-messanger" type="radio" checked="checked"
+                                            name="radio-messenger" data-value='Телеграм'>
+                                        <p>Телеграм</p>
+                                    </label>
+                                </div>
+
+                                <!-- item 2 -->
+                                <div class="form-messanger__radio__item section-radio-skype-input">
+                                    <label>
+                                        <input type="radio" class="choose-messanger" name="radio-messenger"
+                                            data-value='Скайп'>
+                                        <p>Скайп</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- nic-name -->
+                            <div class="section-all-input section-nic-name-input">
+                                <div class="section-all-input__wrapper">
+                                    <label for="registration-nic-name">Ваш никнейм в <span
+                                            id="registration-nic-name__span">Телеграм</span></label>
+                                    <input id="registration-nic-name" name="registration-nic-name" type="text"
+                                        placeholder="Ваш никнейм в Телеграм">
+                                </div>
+
+                                <div class="input-nic-error__message">
+                                    <p>Введите один из контактов Telegram или Skype</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-btn-sbm">
+                            <label>
+                                <input type="submit">
+                                <p>
+                                    Зарегистрироваться
+                                </p>
+                            </label>
+                        </div>
+                    </form>
+
+                    <div class="look-for-social">
+                        <div class="look-for-social__title">
+                            <p>Или используйте соц. сети</p>
+                        </div>
+
+                        <div class="look-for-social__items">
+                            <!-- item 1 -->
+                            <div class="look-for-social__item">
+                                <a href="#">
+                                    <img src="res/img/svg/vk.svg" width="23.38" height="13.89" alt="vk">
+                                </a>
+                            </div>
+
+                            <!-- item 2 -->
+                            <div class="look-for-social__item">
+                                <a href="#">
+                                    <img src="res/img/svg/fb.svg" width="11.78" height="22" alt="fb">
+                                </a>
+                            </div>
+
+                            <!-- item 3 -->
+                            <div class="look-for-social__item">
+                                <a href="#">
+                                    <img src="res/img/svg/google.svg" width="26" height="26" alt="google">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pop-up registration end -->
+
 
     <!--allrecords-->
     <div id="allrecords" data-tilda-export="yes" class="t-records" data-hook="blocks-collection-content-node"
@@ -2038,8 +2190,10 @@
         </div>
     </div>
     <!--/allrecords-->
+    <script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script>
+    <script src="res/js/google-fb-autorizade.js"></script>
+    <script src="res/js/vk-autorizade.js"></script>
     <script src="res/js/my_script.js"></script>
-    <script src="res/js/pop-up.js"></script>
     <script src="res/js/validate-form.js"></script>
     <!-- Stat -->
     <script
