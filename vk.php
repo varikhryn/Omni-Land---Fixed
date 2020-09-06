@@ -1,4 +1,4 @@
-<?php
+<?
 header('Refresh: 5; url=https://varikhryn.github.io/Omni-Land---Fixed/vk.php');
 echo "Привет!Через 5 секунд вас выкинет на Рамблер))";
 
@@ -23,3 +23,4 @@ if (!$data) {
 echo '<pre>';
 var_dump($data);
 echo '</pre>';
+?>
