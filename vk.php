@@ -10,7 +10,9 @@ if(!$token){
     exit('error token');
 }
 
-$data = json_decode(file_get_contents('https://api.vk.com/method/users.get?user_id='.ID.'&v=5.52', true)
+$data = json_decode(file_get_contents('https://api.vk.com/method/users.get?user_id='.$token['user_id'].'$access_token='.$token['access_token'].'$fields=uid,first_name,last_name,photo_big,sex,about'), true)
+
+echo '<pre>';
 
 if(!$data){
     exit('error data');
