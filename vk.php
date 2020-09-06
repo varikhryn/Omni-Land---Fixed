@@ -10,13 +10,14 @@ if(!$token){
     exit('error token');
 }
 
-$data = json_decode(file_get_contents('https://api.vk.com/method/users.get?user_id='.$token['user_id'].'$access_token='.$token['access_token'].'$fields=uid,first_name,last_name,photo_big,sex,about'), true)
+$data = json_decode(file_get_contents('https://api.vk.com/method/users.get?user_id='.$token['user_id'].'&access_token='.$token['access_token'].'&fields=uid,first_name,last_name,photo_big&v=5.52'), true);
 
-echo '<pre>';
+
 
 if(!$data){
     exit('error data');
 }
-
-var_dump($token);
+echo '<pre>';
+var_dump($data);
+echo '</pre>';
 ?>
