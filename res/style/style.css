@@ -75,7 +75,8 @@ body{
 }
 
 #section__pop-up__login,
-#section__pop-up__registration{
+#section__pop-up__registration,
+#section__pop-up__remember-pass{
     visibility: hidden;
     display: none;
 }
@@ -178,6 +179,10 @@ body{
     font-style: normal;
     font-size: calc(30px + 10 * (100vw / 1400));
     color: #2B4362;
+}
+
+.form__title.title_remember_pass h1{
+    font-size: calc(15px + 10 * (100vw / 1400));
 }
 
 .ask-account{
@@ -315,20 +320,32 @@ body{
     font-size: calc(12px + 4 * (100vw / 1400));
 }
 
-input.input-mail-error{
+input.input-mail-error,
+input.input-pass-error__message,
+input.input-nic-error__message,
+input.input-pass-error__message,
+input.input-pass-repeat-error__message{
     border-color: red;
     color: red;
     transition: all .2s ease-in;
 }
 
 
-.section-all-input .input-mail-error__message{
+.section-all-input .input-mail-error__message,
+.section-all-input .input-pass-error__message,
+.section-all-input .input-nic-error__message,
+.section-all-input .input-pass-error__message,
+.section-all-input .input-pass-repeat-error__message{
     display: none;
     visibility: hidden;
     opacity: 0;
 }
 
-.section-all-input .input-mail-error__message p {
+.section-all-input .input-mail-error__message p,
+.section-all-input .input-pass-error__message p,
+.section-all-input .input-nic-error__message p,
+.section-all-input .input-pass-error__message p,
+.section-all-input .input-pass-repeat-error__message p{
     font-size: calc(10px + 2 * (100vw / 1400));
     color: red;
     padding: 4px 0;
@@ -529,7 +546,8 @@ input.input-mail-error{
 }
 
 body.show-pop-up-registration,
-body.show-pop-up-enter{
+body.show-pop-up-enter,
+body.show-pop-up-remember-pass{
     overflow-y: hidden;
 }
 

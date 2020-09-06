@@ -63,13 +63,13 @@
                     </div>
 
                     <div class="ask-account">
-                        <p>Нет аккаунта? <button id="link__for_refistration">Создайте</button></p>
+                        <p>Нет аккаунта? <a href="#btn__open__registration" id="link__for_refistration">Создайте</a></p>
                     </div>
 
                     <form action="POST" id="form-enter" novalidate>
 
                         <!-- email -->
-                        <div class="section-all-input">
+                        <div class="section-all-input section-email-input">
                             <div class="section-all-input__wrapper">
                                 <label for="registration-email__login">Email</label>
                                 <img src="res/img/svg/email.svg" alt="name" width="14px" height="11px">
@@ -77,25 +77,25 @@
                                     placeholder="Email">
                             </div>
                             <div class="input-mail-error__message">
-                                <p>Логин и/или пароль не верны</p>
+                                <p>Заполните поле "E-mail"</p>
                             </div>
                         </div>
 
                         <!-- pass -->
-                        <div class="section-all-input">
+                        <div class="section-all-input section-pass-login-input">
                             <div class="section-all-input__wrapper">
                                 <label for="registration-password__login">Ваш пароль</label>
                                 <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
                                 <input id="registration-password__login" name="registration-password__login"
                                     type="password" placeholder="Ваш пароль">
                             </div>
-                            <div class="input-mail-error__message">
-                                <p>Неверный пароль.</p>
+                            <div class="input-pass-error__message">
+                                <p>Логин и/или пароль не верны</p>
                             </div>
                         </div>
 
                         <div class="form-enter__remember-pass">
-                            <a href="#">Забыли пароль?</a>
+                            <a id="open-modal_remember_pass" href="#section__pop-up__remember-pass">Забыли пароль?</a>
                         </div>
 
                         <div class="form-btn-sbm">
@@ -154,13 +154,13 @@
                     </div>
 
                     <div class="ask-account">
-                        <p>Уже есть аккаунт? <button id="link__for_login">Войдите</button></p>
+                        <p>Уже есть аккаунт? <a href="#btn__open__login" id="link__for_login">Войдите</a></p>
                     </div>
 
                     <form action=" POST" id="form-registration" novalidate>
 
                         <!-- name -->
-                        <div class="section-all-input">
+                        <div class="section-all-input section-name-input">
                             <div class="section-all-input__wrapper">
                                 <label for="registration-name">Ваше имя</label>
                                 <img src="res/img/svg/name.svg" alt="name" width="14px" height="14px">
@@ -168,12 +168,12 @@
                                     placeholder="Ваше имя">
                             </div>
                             <div class="input-mail-error__message">
-                                <p>Заполните поле "Имя"</p>
+                                <p>Введите корректное имя</p>
                             </div>
                         </div>
 
                         <!-- email -->
-                        <div class="section-all-input">
+                        <div class="section-all-input section-email-input">
                             <div class="section-all-input__wrapper">
                                 <label for="registration-email">Email</label>
                                 <img src="res/img/svg/email.svg" alt="name" width="14px" height="11px">
@@ -181,30 +181,33 @@
                                     placeholder="Email">
                             </div>
                             <div class="input-mail-error__message">
-                                <p>Поле "E-mail" заполнено не верно</p>
+                                <p>Заполните поле "E-mail"</p>
                             </div>
                         </div>
 
                         <!-- pass -->
-                        <div class="section-all-input">
+                        <div class="section-all-input section-password-input">
                             <div class="section-all-input__wrapper">
                                 <label for="registration-password">Ваш пароль</label>
                                 <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
                                 <input id="registration-password" name="registration-password" type="password"
                                     placeholder="Ваш пароль">
                             </div>
-                            <div class="input-mail-error__message">
-                                <p>Пароли не совпадает или количество символом менше 4</p>
+                            <div class="input-pass-error__message">
+                                <p>Заполните поле "Пароль"</p>
                             </div>
                         </div>
 
                         <!-- repeat pass -->
-                        <div class="section-all-input">
+                        <div class="section-all-input section-repeat-passport-input">
                             <div class="section-all-input__wrapper">
                                 <label for="registration-repeat-password">Подтвердите пароль</label>
                                 <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
                                 <input id="registration-repeat-password" name="registration-repeat-password"
                                     type="password" placeholder="Подтвердите пароль">
+                            </div>
+                            <div class="input-pass-repeat-error__message">
+                                <p>Повторите пароль</p>
                             </div>
                         </div>
 
@@ -215,7 +218,7 @@
 
                             <div class="form-messanger__radio">
                                 <!-- item 1 -->
-                                <div class="form-messanger__radio__item">
+                                <div class="form-messanger__radio__item section-radio-telegram-input">
                                     <label>
                                         <input class="choose-messanger" type="radio" checked="checked"
                                             name="radio-messenger" data-value='Телеграм'>
@@ -224,7 +227,7 @@
                                 </div>
 
                                 <!-- item 2 -->
-                                <div class="form-messanger__radio__item">
+                                <div class="form-messanger__radio__item section-radio-telegram-input">
                                     <label>
                                         <input type="radio" class="choose-messanger" name="radio-messenger"
                                             data-value='Скайп'>
@@ -234,12 +237,15 @@
                             </div>
 
                             <!-- nic-name -->
-                            <div class="section-all-input input-nic-name">
+                            <div class="section-all-input section-nic-name-input">
                                 <div class="section-all-input__wrapper">
                                     <label for="registration-nic-name">Ваш никнейм в <span
                                             id="registration-nic-name__span">Телеграм</span></label>
                                     <input id="registration-nic-name" name="registration-nic-name" type="text"
                                         placeholder="Ваш никнейм в Телеграм">
+                                </div>
+                                <div class="input-nic-error__message">
+                                    <p>Введите один из контактов Telegram или Skype</p>
                                 </div>
                             </div>
                         </div>

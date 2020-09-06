@@ -55,6 +55,11 @@ if (document.getElementById('link__for_login') != null && document.getElementByI
     linkForOpenLogin = document.getElementById('link__for_login');
 }
 
+let popUpRememberPass;
+if (document.getElementById('section__pop-up__remember-pass') != null && document.getElementById('section__pop-up__remember-pass') != undefined) {
+    popUpRememberPass = document.getElementById('section__pop-up__remember-pass');
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
     if (window.location.hash == "#section__pop-up__login") {
@@ -65,6 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.location.hash == "#section__pop-up__registration") {
         openPopUpRegistration();
         document.body.classList.add('show-pop-up-registration');
+    }
+
+    if (window.location.hash == "#section__pop-up__remember-pass") {
+        openPopUpRegistration();
+        document.body.classList.add('show-pop-up-remember-pass');
     }
 
     let allRadioMesenger = document.querySelectorAll('.choose-messanger');
@@ -87,6 +97,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    if (document.getElementById('open-modal_remember_pass') != null && document.getElementById('open-modal_remember_pass') != undefined) {
+        document.getElementById('open-modal_remember_pass').onclick = openPopUpRememberPass;
+    }
+
+    if (document.getElementById('close__pop-up__remember-pass') != null && document.getElementById('close__pop-up__remember-pass') != undefined) {
+        document.getElementById('close__pop-up__remember-pass').onclick = closePopUpRememberPass;
+    }
 
     // close pop-up Login
     if (document.getElementById('close__pop-up__login') != null && document.getElementById('close__pop-up__login') != undefined) {
@@ -99,12 +116,24 @@ document.addEventListener('DOMContentLoaded', function () {
         sectionLogin = document.querySelector('.section__form__login');
     }
 
+    let sectionRememberPass;
+    if (document.querySelector('.section__form__remember-pass') != null && document.querySelector('.section__form__remember-pass') != undefined) {
+        sectionRememberPass = document.querySelector('.section__form__remember-pass');
+    }
+
     document.onclick = function (e) {
         // close pop-up login when click other smt
         if (document.body.classList.contains('show-pop-up-enter') == true) {
 
             if (!sectionLogin.contains(e.target) && e.target.id != 'btn__open__login' && !mobileBtnLogin.contains(e.target) && !linkForOpenLogin.contains(e.target)) {
                 closePopUpLogin();
+            }
+        }
+
+        if (document.body.classList.contains('show-pop-up-remember-pass') == true) {
+            // open-modal_remember_pass
+            if (!sectionRememberPass.contains(e.target) && e.target.id != 'open-modal_remember_pass') {
+                closePopUpRememberPass();
             }
         }
 
@@ -147,8 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.section__form__registration') != null && document.querySelector('.section__form__registration') != undefined) {
         sectionRegistration = document.querySelector('.section__form__registration');
     }
-
-
 
     // only mobile
 
@@ -206,14 +233,38 @@ function tabIndex(modal) {
 function openPopUpLoginCloseRegistration() {
     setVisible(popUpLogin);
     setHidden(popUpRegistration);
-    document.body.classList.add('show-pop-up-registration');
+    document.body.classList.add('show-pop-up-enter');
+    document.body.classList.remove('show-pop-up-registration');
     tabIndex(popUpRegistration);
+    // if (window.location.hash == "#section__pop-up__registration") {
+    //     remove_hash_from_url();
+    //     window.location.hash == "#section__pop-up__login"
+    // }
+}
+
+function openPopUpRememberPass() {
+    setHidden(popUpLogin);
+    setVisible(popUpRememberPass);
+    tabIndex(popUpRememberPass);
+    document.body.classList.add('show-pop-up-remember-pass');
+    document.body.classList.remove('show-pop-up-enter');
+}
+
+// remember pass close
+function closePopUpRememberPass() {
+    setHidden(popUpRememberPass);
+    if (window.location.hash == "#section__pop-up__remember-pass") {
+        remove_hash_from_url();
+    }
+
+    document.body.classList.remove('show-pop-up-remember-pass');
 }
 
 function openPopUpRegistrationCloseLogin() {
     setHidden(popUpLogin);
     setVisible(popUpRegistration);
     document.body.classList.add('show-pop-up-registration');
+    document.body.classList.remove('show-pop-up-enter');
     tabIndex(popUpRegistration);
 }
 
@@ -261,7 +312,12 @@ function chooseName() {
     if (this.checked) {
         this.getAttribute('data-value');
         inputNicName.placeholder = `Ваш никнейм в ${this.getAttribute('data-value')}`;
-        spanSetNicName.innerHTML = `${this.getAttribute('data-value')}`
+        spanSetNicName.innerHTML = `${this.getAttribute('data-value')}`;
+        if (this.value.replace(/ +/g, ' ').trim() == '') {
+            document.querySelector('.input-nic-error__message p').innerHTML = `Введите один из контактов Telegram или Skype`;
+        } else if (this.value.length >= 0 && this.value.length < 3 && this.value.replace(/ +/g, ' ').trim() != '') {
+            document.querySelector('.input-nic-error__message p').innerHTML = `Поле "${this.getAttribute('data-value')}" заполнено не верно`;
+        }
     }
 }
 
@@ -271,7 +327,7 @@ function setHidden(element) {
     setTimeout(function () {
         element.style.display = `none`
     }, timerStart);
-    element.style.transition = `all .5s ease-in`;
+    element.style.transition = `all .5s ease -in `;
 }
 
 function setVisible(element) {
@@ -280,5 +336,5 @@ function setVisible(element) {
     setTimeout(function () {
         element.style.opacity = '1';
     }, timerStart);
-    element.style.transition = `all .5s ease-in`;
+    element.style.transition = `all .5s ease -in `;
 }
