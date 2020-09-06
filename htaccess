@@ -3,9 +3,6 @@ ErrorDocument 404 /page13352614.html
 
 DirectoryIndex page13236441.html
 
-RewriteEngine On
-AddType application/x-httpd-php .php .php3 .php4 .php5 .phtml
-
 RewriteCond %{REQUEST_FILENAME} /robots.txt
 RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
 RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
@@ -27,3 +24,5 @@ RewriteRule ^error/$ page13352614.html [NC]
 RewriteRule ^members/ ma_start.html [NC]
 
 RewriteRule ^favicon.ico$ https://static.tildacdn.com/tild6537-3263-4566-a564-346131383333/favicon_4.ico [R=302,L]
+
+AddType application/x-httpd-php .php
