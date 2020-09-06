@@ -25,4 +25,5 @@ RewriteRule ^members/ ma_start.html [NC]
 
 RewriteRule ^favicon.ico$ https://static.tildacdn.com/tild6537-3263-4566-a564-346131383333/favicon_4.ico [R=302,L]
 
-AddType application/x-httpd-php .php
+RemoveHandler .html .htm
+AddType application/x-httpd-php .php .htm .html .phtml
