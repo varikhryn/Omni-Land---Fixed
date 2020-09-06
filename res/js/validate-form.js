@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('false submit');
             } else {
                 console.log('true submit');
+                alert('done');
             }
 
             return allValid;
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('false');
             } else {
                 console.log('true');
+                alert('done');
             }
 
             return allValid;
@@ -123,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('false');
             } else {
                 console.log('true');
+                alert('done');
             }
 
             return allValid;
