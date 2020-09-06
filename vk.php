@@ -1,4 +1,4 @@
-<?
+<?php
 if(!$_GET['code']){
     exit('error code');
 }
