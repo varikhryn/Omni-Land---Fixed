@@ -62,6 +62,8 @@ if (document.getElementById('section__pop-up__remember-pass') != null && documen
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    console.log(window.location.hash);
+
     if (window.location.hash == "#section__pop-up__login") {
         openPopUpLogin();
         document.body.classList.add('show-pop-up-enter');
@@ -127,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!sectionLogin.contains(e.target) && e.target.id != 'btn__open__login' && !mobileBtnLogin.contains(e.target) && !linkForOpenLogin.contains(e.target)) {
                 closePopUpLogin();
+                // remove_hash_from_url();
             }
         }
 
@@ -134,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // open-modal_remember_pass
             if (!sectionRememberPass.contains(e.target) && e.target.id != 'open-modal_remember_pass') {
                 closePopUpRememberPass();
+                // remove_hash_from_url();
             }
         }
 
@@ -155,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
+
     };
 
     // open pop-up registration
@@ -245,11 +250,7 @@ function openPopUpLoginCloseRegistration() {
     setHidden(popUpRegistration);
     document.body.classList.add('show-pop-up-enter');
     document.body.classList.remove('show-pop-up-registration');
-    tabIndex(popUpRegistration);
-    // if (window.location.hash == "#section__pop-up__registration") {
-    //     remove_hash_from_url();
-    //     window.location.hash == "#section__pop-up__login"
-    // }
+    tabIndex(popUpLogin);
 }
 
 function openPopUpRememberPass() {
@@ -307,7 +308,6 @@ function closePopUpLogin() {
     if (window.location.hash == "#section__pop-up__login") {
         remove_hash_from_url();
     }
-
     document.body.classList.remove('show-pop-up-enter');
 }
 

@@ -38,8 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let validN = false,
                 validM = false,
-                validPass = false;
-            validNicName = false;
+                validPass = false,
+                validNicName = false,
+                validValuePass = false;
 
             for (let item of formRegistration) {
                 if (validMail(item) == true && item.type == 'email') {
@@ -54,11 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (validPasswordRegistration(item) == true && item.type == 'password') {
                     validPass = true;
                 }
+
+                if (document.getElementById('registration-password').value == document.getElementById('registration-repeat-password').value) {
+                    validValuePass = true
+                }
             }
 
 
 
-            let allValid = validM && validN && validPass && validNicName;
+            let allValid = validM && validN && validPass && validNicName && validValuePass;
 
             if (allValid == false) {
                 console.log('false submit');
