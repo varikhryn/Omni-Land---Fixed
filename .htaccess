@@ -1,6 +1,3 @@
-RemoveHandler .html .htm
-AddType application/x-httpd-php .php .htm .html .phtml
-
 ErrorDocument 403 /page13352614.html
 ErrorDocument 404 /page13352614.html
 

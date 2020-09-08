@@ -189,6 +189,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     linkForOpenRegistration.onclick = openPopUpRegistrationCloseLogin;
     linkForOpenLogin.onclick = openPopUpLoginCloseRegistration;
+
+    // tab on slider
+    let sliderLink = document.querySelectorAll('.t-slds .t-slds__container a.tn-atom');
+    for (let item of sliderLink) {
+        item.setAttribute('tabindex', '-1');
+    }
 });
 
 let lastFocusedElement;
@@ -206,7 +212,11 @@ function tabIndex(modal) {
 
     var lastTabStop = focusableElements[focusableElements.length - 1];
 
-    firstTabStop.focus();
+    // firstTabStop.focus();
+    focusableElements[1].focus();
+
+
+    // console.log(focusableElements[8])
 
     modal.addEventListener('keydown', function (e) {
         if (e.keyCode === 9) {
