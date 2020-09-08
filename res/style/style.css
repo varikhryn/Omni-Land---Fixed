@@ -4,7 +4,6 @@ a{
     color: #2B4362;
 }
 
-
 .my-pop-up__autorizade input{
     font-family: 'Manrope', sans-serif;
     box-shadow: none;
@@ -12,7 +11,8 @@ a{
     border: none;
     border-radius: 0;
     color: rgba(43, 67, 98, 1);;
-    font-size: calc(14px + 2 * (100vw / 1400));
+    /* font-size: calc(12px + 4 * (100vw / 1400)); */
+    font-size: 16px;
     outline: none;
     opacity: 1;
     -webkit-appearance: none;  /* убирает стандартные стили для iphone */
@@ -297,7 +297,7 @@ body{
 .section-all-input label{
     position: absolute;
     padding: 5px 0;
-    font-size: calc(12px + 2 * (100vw / 1400));
+    font-size: calc(10px + 2 * (100vw / 1400));
     color: rgba(43, 67, 98, 0.78);
     opacity: 0;
     left: 22px;
@@ -318,7 +318,7 @@ body{
 .section-all-input input::placeholder{
     opacity: 1;
     color: #848181;
-    font-size: calc(14px + 4 * (100vw / 1400));
+    font-size: calc(12px + 4 * (100vw / 1400));
 }
 
 input.input-mail-error,
@@ -400,6 +400,7 @@ input.input-pass-repeat-error__message{
 
 .form-messanger__title p{
     font-weight: 500;
+    font-size: 14px;
     font-size: calc(12px + 2 * (100vw / 1920));
 }
 
