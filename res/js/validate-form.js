@@ -1,11 +1,20 @@
 let pass1;
-let pass2;
+let pass2,
+    newpass1,
+    newpass2;
 
 if (document.getElementById('registration-password') != undefined && document.getElementById('registration-password') != null) {
     pass1 = document.getElementById('registration-password');
 }
 if (document.getElementById('registration-repeat-password') != undefined && document.getElementById('registration-repeat-password') != null) {
     pass2 = document.getElementById('registration-repeat-password');
+}
+
+if (document.getElementById('new-password') != undefined && document.getElementById('new-password') != null) {
+    newpass1 = document.getElementById('new-password');
+}
+if (document.getElementById('registration-repeat-new-password') != undefined && document.getElementById('registration-repeat-new-password') != null) {
+    newpass2 = document.getElementById('registration-repeat-new-password');
 }
 
 let maskNicTelegram = /^[@]{1}[a-z][a-z0-9_](?:[_]?[a-z0-9])*$/;
@@ -23,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.addEventListener('click', function (e) {
         // 'show-pop-up-enter' 'show-pop-up-remember-pass' 'show-pop-up-registration') 
-        if (e.target.id != 'close__pop-up__login' && e.target.id != 'close__pop-up__registration' && e.target.id != 'close__pop-up__remember-pass' && (document.getElementById('form-enter').contains(e.target) || document.getElementById('form-registration').contains(e.target) || document.getElementById('form-remember-pass').contains(e.target))) {
+        if (e.target.id != 'close__pop-up__new_password' && e.target.id != 'close__pop-up__login' && e.target.id != 'close__pop-up__registration' && e.target.id != 'close__pop-up__remember-pass' && (document.getElementById('form-enter').contains(e.target) || document.getElementById('form-registration').contains(e.target) || document.getElementById('form-remember-pass').contains(e.target) || document.getElementById('form-new_password').contains(e.target))) {
             for (let item of sectionInput) {
                 item.addEventListener('focusout', getLabelInput);
                 item.addEventListener('click', getLabelInput);
@@ -37,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let popUpOoops,
         formRegistration,
-        formLogin;
+        formLogin,
+        newPassword;
 
     //form registration
     if (document.getElementById('form-registration') != null && document.getElementById('form-registration') != undefined) {
@@ -84,6 +94,41 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             let allValid = validM && validN && validPass && validNicName && validValuePass && validNicTelegram && validNicPhone;
+
+            if (allValid == false) {
+                console.log('false submit');
+            } else {
+                console.log('true submit');
+                alert('done');
+            }
+
+            return allValid;
+        }
+    }
+
+    //form new password
+    if (document.getElementById('form-new_password') != null && document.getElementById('form-new_password') != undefined) {
+        newPassword = document.getElementById('form-new_password');
+
+        newPassword.onsubmit = (event) => {
+            event.preventDefault();
+
+            let validPassNew = false,
+                validValuePassNew = false;
+
+            for (let item of newPassword) {
+                if (validPasswordNew(item) == true && item.type == 'password') {
+                    validPassNew = true;
+                }
+
+                if (document.getElementById('new-password').value == document.getElementById('registration-repeat-new-password').value) {
+                    validValuePassNew = true
+                }
+
+            }
+
+            console.log(validPassNew)
+            let allValid = validPassNew && validValuePassNew;
 
             if (allValid == false) {
                 console.log('false submit');
@@ -147,9 +192,18 @@ document.addEventListener('DOMContentLoaded', function () {
             let allValid = validM;
 
             if (allValid == false) {
-                console.log('false');
+                if (document.querySelector('.input-sbm-true').classList.contains('sbm-form-remember-pass') == true) {
+                    document.querySelector('.input-sbm-true').classList.remove('sbm-form-remember-pass')
+                }
+
+                if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == true) {
+                    document.querySelector('.form-sbm-true').classList.remove('form-sbm-true_show')
+                }
             } else {
                 console.log('true');
+                // document.querySelector('.input-sbm-true').style.display = 'flex';
+                document.querySelector('.input-sbm-true').classList.add('sbm-form-remember-pass');
+                document.querySelector('.form-sbm-true').classList.add('form-sbm-true_show');
                 alert('done');
             }
 
@@ -214,6 +268,51 @@ function validPasswordRegistration(input) {
         } else if (pass2.value != pass1.value && pass2.value != '' && pass1.value != '') {
             divM.children[0].innerHTML = `Пароли не совпадают`;
             ifInputError(pass2, divM);
+            valid2 = false;
+        } else {
+            ifInputValid(input, divM);
+            ifInputValid(pass1, divM);
+            valid2 = true;
+        }
+    }
+
+    valid = valid1 && valid2;
+    return valid;
+}
+
+function validPasswordNew(input) {
+    let valid1 = true;
+    let valid2 = true;
+
+    if (input.type == 'password' && newpass1.getAttribute('id') == 'new-password') {
+        let divM = input.parentElement.parentElement.children[1];
+        if (input.value == '') {
+            divM.children[0].innerHTML = `Заполните поле "Пароль"`;
+            ifInputError(input, divM);
+            valid1 = false;
+        } else if (input.value != '' && input.value.length >= 1 && input.value.length < 6) {
+            divM.children[0].innerHTML = `Длинна пароля должна быть не менее 6 символов`;
+            ifInputError(input, divM);
+            valid1 = false;
+        } else if (input.value != newpass2.value && input.value != '' && newpass2.value != '' && input.value.length >= 6) {
+            let repeatPass = newpass2.parentElement.parentElement.children[1];
+            divM.children[0].innerHTML = `Пароли не совпадают`;
+            ifInputError(input, divM);
+            valid1 = false;
+        } else {
+            ifInputValid(input, divM);
+            ifInputValid(pass2, divM);
+            valid1 = true;
+        }
+    } else if (newpass2.type == 'password' && newpass2.getAttribute('id') == 'registration-repeat-new-password') {
+        let divM = newpass2.parentElement.parentElement.children[1];
+        if (newpass2.value == '') {
+            divM.children[0].innerHTML = `Повторите пароль`;
+            ifInputError(newpass2, divM);
+            valid2 = false;
+        } else if (newpass2.value != pass1.value && newpass2.value != '' && newpass1.value != '') {
+            divM.children[0].innerHTML = `Пароли не совпадают`;
+            ifInputError(newpass2, divM);
             valid2 = false;
         } else {
             ifInputValid(input, divM);
@@ -356,7 +455,7 @@ function validMail(item) {
 
 // input + label
 function getLabelInput(e) {
-    if (document.querySelector('body').classList.contains('show-pop-up-enter') == true || document.querySelector('body').classList.contains('show-pop-up-remember-pass') == true || document.querySelector('body').classList.contains('show-pop-up-registration') == true) {
+    if (document.querySelector('body').classList.contains('show-pop-up-enter') == true || document.querySelector('body').classList.contains('show-pop-up-remember-pass') == true || document.querySelector('body').classList.contains('show-pop-up-registration') == true || document.querySelector('body').classList.contains('show-pop-up-new-pass') == true) {
         let input = this.querySelector('input');
         let label = this.querySelector('label');
         let divMessage;
@@ -499,6 +598,32 @@ function getLabelInput(e) {
                     divM.children[0].innerHTML = `Пароли не совпадают`;
                     ifInputError(input, divM);
                 }
+            } else if (input.type == 'password' && input.getAttribute('id') == 'new-password') {
+                //new
+                console.log('click new pass');
+                let divM = input.parentElement.parentElement.children[1];
+
+                if (input.value == '') {
+                    divM.children[0].innerHTML = `Заполните поле "Пароль"`;
+                    ifInputError(input, divM);
+                } else if (input.value != '' && input.value.length >= 1 && input.value.length < 6) {
+                    divM.children[0].innerHTML = `Длинна пароля должна быть не менее 6 символов`;
+                    ifInputError(input, divM);
+                } if (input.value != newpass2.value && input.value != '' && newpass2.value != '' && input.value.length >= 6) {
+                    let repeatPass = newpass2.parentElement.parentElement.children[1];
+                    divM.children[0].innerHTML = `Пароли не совпадают`;
+                    ifInputError(input, divM);
+                }
+            } else if (input.type == 'password' && input.getAttribute('id') == 'registration-repeat-new-password') {
+                console.log('click repeat new pass');
+                let divM = input.parentElement.parentElement.children[1];
+                if (input.value == '') {
+                    divM.children[0].innerHTML = `Повторите пароль`;
+                    ifInputError(input, divM);
+                } else if (input.value != newpass1.value && input.value != '' && newpass1.value != '') {
+                    divM.children[0].innerHTML = `Пароли не совпадают`;
+                    ifInputError(input, divM);
+                }
             }
             else if (input.type == 'password' && input.getAttribute('id') == 'registration-password__login') {
                 let divM = input.parentElement.parentElement.children[1];
@@ -518,11 +643,19 @@ function getLabelInput(e) {
             } else if (input.classList.contains('input-mail-error') && input.getAttribute('id') == 'registration-password') {
                 let divM = this.children[1];
                 ifInputValid(input, divM);
+            } else if (input.classList.contains('input-mail-error') && input.getAttribute('id') == 'new-password') {
+                let divM = this.children[1];
+                ifInputValid(input, divM);
             } else {
                 let divM = this.children[1];
                 ifInputValid(input, divM);
             }
             if (input.classList.contains('input-mail-error') && input.getAttribute('id') == 'registration-repeat-password') {
+                let divM = this.children[1];
+                ifInputValid(input, divM);
+            }
+
+            if (input.classList.contains('input-mail-error') && input.getAttribute('id') == 'registration-repeat-new-password') {
                 let divM = this.children[1];
                 ifInputValid(input, divM);
             }

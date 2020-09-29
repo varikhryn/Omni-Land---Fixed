@@ -98,7 +98,8 @@ body{
 
 #section__pop-up__login,
 #section__pop-up__registration,
-#section__pop-up__remember-pass{
+#section__pop-up__remember-pass,
+#section__pop-up__new_password{
     visibility: hidden;
     display: none;
 }
@@ -569,8 +570,27 @@ input.input-pass-repeat-error__message{
 
 body.show-pop-up-registration,
 body.show-pop-up-enter,
-body.show-pop-up-remember-pass{
+body.show-pop-up-remember-pass,
+body.show-pop-up-new-pass{
     overflow-y: hidden;
+}
+
+.input-sbm-true{
+    display: none;
+}
+
+.form-sbm-true{
+    display: none;
+    padding: 10px 0;
+}
+
+.input-sbm-true p{
+    color: green;
+}
+
+.sbm-form-remember-pass,
+.form-sbm-true_show{
+    display: flex;
 }
 
 @media screen and (max-width: 1201px){
