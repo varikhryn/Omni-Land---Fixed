@@ -100,7 +100,8 @@ body{
 #section__pop-up__registration,
 #section__pop-up__remember-pass,
 #section__pop-up__new_password,
-#pop-up_error-account{
+#pop-up_error-account,
+#pop-up_attention{
     visibility: hidden;
     display: none;
 }
@@ -505,8 +506,30 @@ input.input-pass-repeat-error__message{
     box-sizing: border-box;
 }
 
-.form-btn-sbm label p:hover{
+.attention_btn_item{
+    width: 80px;
+    padding: 13px 20px;
+    background: #B2D9DB;
+    font-weight: 400;
+    color: #2B4362;
+    font-family: 'Manrope', sans-serif;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: calc(14px + 4 * (100vw / 1920));
+    color: #2B4362;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.form-btn-sbm label p:hover,
+.attention_btn_item:hover{
     opacity: 0.8;
+}
+
+.attention_btn_item:nth-of-type(1){
+    margin-right: 20px;
 }
 
 .look-for-social{
@@ -656,6 +679,11 @@ body.show-pop-up-error-account{
     margin-bottom: calc(25px + 15 *(100vw / 1920));
 }
 
+.section_attention_btn,
+.form-title_attention{
+    margin-bottom: calc(25px + 15 *(100vw / 1920));
+}
+
 .section_error_account_cause p{
     width: 100%;
     text-align: center;
@@ -669,6 +697,19 @@ body.show-pop-up-error-account{
     display: flex;
     visibility: visible;
 } */
+
+.form-title_attention h1{
+    width: 100%;
+    text-align: center;
+}
+
+.section_attention_btn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+}
 
 @media screen and (max-width: 1201px){
     body{

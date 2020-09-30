@@ -77,6 +77,27 @@ if (document.getElementById('pop-up_error-account') != null && document.getEleme
     popUpErrorAccount = document.getElementById('pop-up_error-account');
 }
 
+// pop up attention
+let popUpAttention;
+if (document.getElementById('pop-up_attention') != null && document.getElementById('pop-up_attention') != undefined) {
+    popUpAttention = document.getElementById('pop-up_attention');
+}
+
+// btn attention yes
+let btnYesAttention;
+if (document.getElementById('annetntion_btn_yes') != null && document.getElementById('annetntion_btn_yes') != undefined) {
+    btnYesAttention = document.getElementById('annetntion_btn_yes');
+}
+
+let btnNoAttention;
+if (document.getElementById('annetntion_btn_no') != null && document.getElementById('annetntion_btn_no') != undefined) {
+    btnNoAttention = document.getElementById('annetntion_btn_no');
+}
+
+let btnCloseAttention;
+if (document.getElementById('close__pop-up_attention') != null && document.getElementById('close__pop-up_attention') != undefined) {
+    btnCloseAttention = document.getElementById('close__pop-up_attention');
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -110,6 +131,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.body.classList.contains('show-pop-up-error-account') == true) {
         openPopUpErrorAccount();
         window.location.hash == "#error-account";
+    }
+
+    // attention
+    if (document.body.classList.contains('show-pop-up-attention') == true) {
+        openPopUpAttention();
+        window.location.hash == "#attention";
+    }
+
+    if (window.location.hash == "#attention") {
+        openPopUpAttention();
+        document.body.classList.add('show-pop-up-attention') == true;
     }
 
     let allRadioMesenger = document.querySelectorAll('.choose-messanger');
@@ -164,6 +196,12 @@ document.addEventListener('DOMContentLoaded', function () {
         sectionErrorAccount = document.querySelector('.section__error-account');
     }
 
+    // attention section
+    let sectionAttention;
+    if (document.querySelector('.section_attention') != null && document.querySelector('.section_attention') != undefined) {
+        sectionAttention = document.querySelector('.section_attention');
+    }
+
     document.addEventListener('click', function (e) {
         // close pop-up login when click other smt
         if (document.body.classList.contains('show-pop-up-enter') == true) {
@@ -191,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // error account
-        // section__error-account
         if (document.body.classList.contains('show-pop-up-error-account') == true) {
             if (!sectionErrorAccount.contains(e.target)) {
                 closePopUpErrorAccount();
@@ -199,10 +236,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // attention
+        if (document.body.classList.contains('show-pop-up-attention') == true) {
+            if (!sectionAttention.contains(e.target)) {
+                closePopUpAttention();
+                scrollEnable();
+            }
+        }
+
         // close pop-up registration when click other smt
         if (document.body.classList.contains('show-pop-up-registration') == true) {
             if (openRegistrationMainBlock == undefined && openRegistrationMainBlock == null && openRegistrationIncreaseIncome == undefined && openRegistrationIncreaseIncome == null) {
-                if (!sectionRegistration.contains(e.target) && e.target.id != 'btn__open__registration' && !linkForOpenRegistration.contains(e.target) && !mobileBtnRegistration.contains(e.target) && document.querySelector('body').classList.contains('show-pop-up-registration') == true) {
+                if (!sectionRegistration.contains(e.target) && e.target.id != 'btn__open__registration' && e.target.id != 'annetntion_btn_yes' && !linkForOpenRegistration.contains(e.target) && !mobileBtnRegistration.contains(e.target) && document.querySelector('body').classList.contains('show-pop-up-registration') == true) {
                     setHidden(popUpRegistration);
                     scrollEnable();
                     document.querySelector('body').classList.remove('show-pop-up-registration');
@@ -210,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         remove_hash_from_url();
                     }
                 }
-            } else if (!sectionRegistration.contains(e.target) && e.target.id != 'btn__open__registration' && !linkForOpenRegistration.contains(e.target) && !mobileBtnRegistration.contains(e.target) && document.querySelector('body').classList.contains('show-pop-up-registration') == true && !openRegistrationMainBlock.contains(e.target) && !openRegistrationIncreaseIncome.contains(e.target)) {
+            } else if (!sectionRegistration.contains(e.target) && e.target.id != 'btn__open__registration' && e.target.id != 'annetntion_btn_yes' && !linkForOpenRegistration.contains(e.target) && !mobileBtnRegistration.contains(e.target) && document.querySelector('body').classList.contains('show-pop-up-registration') == true && !openRegistrationMainBlock.contains(e.target) && !openRegistrationIncreaseIncome.contains(e.target)) {
                 setHidden(popUpRegistration);
                 scrollEnable();
                 document.querySelector('body').classList.remove('show-pop-up-registration');
@@ -338,6 +383,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // btn for pop up Attention
+    btnYesAttention.onclick = openRegistraitonCloseAttention;
+
+    btnNoAttention.onclick = closePopUpAttention;
+    btnCloseAttention.onclick = closePopUpAttention;
+
 });
 
 let lastFocusedElement;
@@ -389,11 +440,49 @@ function tabIndex(modal) {
 
 
 
+// pop up Attention open
+function openPopUpAttention() {
+    // popUpAttention
+    scrollDisable();
+    document.body.classList.add('show-pop-up-attention');
+    setVisible(popUpAttention);
+    tabIndex(popUpAttention);
+    window.location.hash = "#attention";
+}
 
-openPopUpErrorAccount()
+function closePopUpAttention() {
+    scrollEnable();
+    setHidden(popUpAttention);
+    if (window.location.hash == "#attention") {
+        remove_hash_from_url();
+    }
+    document.body.classList.remove('show-pop-up-attention');
+}
 
+function openRegistraitonCloseAttention() {
+    scrollDisable();
+    document.body.classList.add('show-pop-up-registration');
+    document.body.classList.remove('show-pop-up-attention');
+
+    setVisible(popUpRegistration);
+    setHidden(popUpAttention);
+    tabIndex(popUpRegistration);
+    console.log('work')
+
+
+
+    // scrollDisable();
+    // document.body.classList.add('show-pop-up-enter');
+    // document.body.classList.remove('show-pop-up-registration');
+    // setVisible(popUpLogin);
+    // setHidden(popUpRegistration);
+    // tabIndex(popUpLogin);
+}
+
+openPopUpAttention();
+
+// openPopUpErrorAccount()
 function openPopUpErrorAccount() {
-    // popUpErrorAccount
     scrollDisable();
     document.body.classList.add('show-pop-up-error-account');
     setVisible(popUpErrorAccount);
