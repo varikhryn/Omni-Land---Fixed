@@ -131,10 +131,22 @@ document.addEventListener('DOMContentLoaded', function () {
             let allValidNew = validPassNew && validValuePassNew;
 
             if (allValidNew == false) {
-                console.log('false submit');
+                if (document.querySelector('.input-message_two-pass-valid').classList.contains('input-message_two-pass-valid_show') == true) {
+                    document.querySelector('.input-message_two-pass-valid').classList.remove('input-message_two-pass-valid_show')
+                }
+
             } else {
-                console.log('true submit');
-                alert('done');
+                let mesNewPas = document.querySelector('.input-message_two-pass-valid');
+                mesNewPas.classList.add('input-message_two-pass-valid_show');
+                if (document.querySelector('#registration-repeat-new-password').classList.contains('input-mail-error') == true) {
+                    document.querySelector('#registration-repeat-new-password').classList.remove('input-mail-error')
+                }
+
+
+                if (document.querySelector('.section-repeat-new-passport-input').classList.contains('error-border') == true) {
+                    document.querySelector('.section-repeat-new-passport-input').classList.remove('error-border')
+                }
+                document.querySelector('.section-repeat-new-passport-input .input-pass-repeat-error__message').style.display = 'none';
             }
 
             return allValidNew;
@@ -196,14 +208,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('.input-sbm-true').classList.remove('sbm-form-remember-pass')
                 }
 
-                if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == false) {
-                    document.querySelector('.form-sbm-true').classList.add('form-sbm-true_show')
-                }
+                // if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == false) {
+                //     document.querySelector('.form-sbm-true').classList.add('form-sbm-true_show')
+                // }
             } else {
                 console.log('true');
                 // document.querySelector('.input-sbm-true').style.display = 'flex';
                 document.querySelector('.input-sbm-true').classList.add('sbm-form-remember-pass');
-                document.querySelector('.form-sbm-true').classList.add('form-sbm-true_show');
+                // document.querySelector('.form-sbm-true').classList.add('form-sbm-true_show');
                 alert('done');
             }
 

@@ -99,7 +99,8 @@ body{
 #section__pop-up__login,
 #section__pop-up__registration,
 #section__pop-up__remember-pass,
-#section__pop-up__new_password{
+#section__pop-up__new_password,
+#pop-up_error-account{
     visibility: hidden;
     display: none;
 }
@@ -571,11 +572,13 @@ input.input-pass-repeat-error__message{
 body.show-pop-up-registration,
 body.show-pop-up-enter,
 body.show-pop-up-remember-pass,
-body.show-pop-up-new-pass{
+body.show-pop-up-new-pass,
+body.show-pop-up-error-account{
     overflow-y: hidden;
 }
 
-.input-sbm-true{
+.input-sbm-true,
+.input-message_two-pass-valid{
     display: none;
 }
 
@@ -584,14 +587,88 @@ body.show-pop-up-new-pass{
     padding: 10px 0;
 }
 
-.input-sbm-true p{
+.input-sbm-true p,
+.input-message_two-pass-valid{
     color: green;
 }
 
 .sbm-form-remember-pass,
-.form-sbm-true_show{
+.form-sbm-true_show,
+.input-message_two-pass-valid_show{
     display: flex;
 }
+
+.error-account_img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid red;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.section_error_account_img{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: calc(25px + 15 *(100vw / 1920));
+}
+
+.error-account_img::after,
+.error-account_img::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 50px;
+    height: 2px;
+    background-color: red;
+}
+
+.error-account_img::after{
+    transform: rotate(45deg);
+}
+
+.error-account_img::before{
+    transform: rotate(-45deg);
+}
+
+.title_error-account{
+    margin-bottom: calc(25px + 15 *(100vw / 1920));
+}
+
+.title_error-account h1{
+    width: 100%;
+    text-align: center;
+}
+
+.section_error_account_cause{
+    width: 100%;
+    margin-bottom: calc(25px + 15 *(100vw / 1920));
+}
+
+.section_error_account_cause p{
+    width: 100%;
+    text-align: center;
+    opacity: 1;
+    color: #848181;
+    font-size: calc(12px + 4 * (100vw / 1400));
+}
+
+/* #pop-up_error-account{
+    opacity: 1;
+    display: flex;
+    visibility: visible;
+} */
 
 @media screen and (max-width: 1201px){
     body{

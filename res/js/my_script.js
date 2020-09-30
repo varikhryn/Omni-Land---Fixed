@@ -71,6 +71,11 @@ if (document.getElementById('close__pop-up__new_password') != null && document.g
     btnpopUpNewPassword = document.getElementById('close__pop-up__new_password')
 }
 
+// error account
+let popUpErrorAccount;
+if (document.getElementById('pop-up_error-account') != null && document.getElementById('pop-up_error-account') != undefined) {
+    popUpErrorAccount = document.getElementById('pop-up_error-account');
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -94,6 +99,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.location.hash == "#new_password") {
         openPopUpNewPass();
         document.body.classList.add('show-pop-up-new-pass');
+    }
+
+    // error account
+    if (window.location.hash == "#error-account") {
+        openPopUpErrorAccount();
+        document.body.classList.add('show-pop-up-error-account');
     }
 
     let allRadioMesenger = document.querySelectorAll('.choose-messanger');
@@ -143,6 +154,11 @@ document.addEventListener('DOMContentLoaded', function () {
         sectionNewPass = document.querySelector('.section__form__new_password');
     }
 
+    let sectionErrorAccount;
+    if (document.querySelector('.section__error-account') != null && document.querySelector('.section__error-account') != undefined) {
+        sectionErrorAccount = document.querySelector('.section__error-account');
+    }
+
     document.addEventListener('click', function (e) {
         // close pop-up login when click other smt
         if (document.body.classList.contains('show-pop-up-enter') == true) {
@@ -165,6 +181,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (document.body.classList.contains('show-pop-up-new-pass') == true) {
             if (!sectionNewPass.contains(e.target)) {
                 closePopUpNewPass();
+                scrollEnable();
+            }
+        }
+
+        // error account
+        // section__error-account
+        if (document.body.classList.contains('show-pop-up-error-account') == true) {
+            if (!sectionErrorAccount.contains(e.target)) {
+                closePopUpErrorAccount();
                 scrollEnable();
             }
         }
@@ -215,15 +240,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // only mobile
 
     // open pop-up Login
-    // if (window.innerWidth <= 1024) {
     mobileBtnLogin.onclick = openPopUpLogin;
-    // }
 
     // close pop up new password
     btnpopUpNewPassword.onclick = closePopUpNewPass;
 
     // open pop-up Registration
     mobileBtnRegistration.onclick = openPopUpRegistration;
+
+    // close pop up error account "X"
+    if (document.getElementById('close__pop-up_error-account') != null && document.getElementById('close__pop-up_error-account') != undefined) {
+        document.getElementById('close__pop-up_error-account').onclick = closePopUpErrorAccount;
+    }
+
+    // close pop up error account "OK"
+    if (document.getElementById('btn-ok_error-account') != null && document.getElementById('btn-ok_error-account') != undefined) {
+        document.getElementById('btn-ok_error-account').onclick = closePopUpErrorAccount;
+    }
 
     linkForOpenRegistration.onclick = openPopUpRegistrationCloseLogin;
     linkForOpenLogin.onclick = openPopUpLoginCloseRegistration;
@@ -351,8 +384,28 @@ function tabIndex(modal) {
 
 
 
-openPopUpNewPass();
 
+openPopUpErrorAccount()
+
+function openPopUpErrorAccount() {
+    // popUpErrorAccount
+    scrollDisable();
+    document.body.classList.add('show-pop-up-error-account');
+    setVisible(popUpErrorAccount);
+    tabIndex(popUpErrorAccount);
+    window.location.hash = "#error-account";
+}
+
+function closePopUpErrorAccount() {
+    scrollEnable();
+    setHidden(popUpErrorAccount);
+    if (window.location.hash == "#error-account") {
+        remove_hash_from_url();
+    }
+    document.body.classList.remove('show-pop-up-error-account');
+}
+
+// openPopUpNewPass();
 function openPopUpNewPass() {
     scrollDisable();
     document.body.classList.add('show-pop-up-new-pass');
@@ -403,9 +456,9 @@ function closePopUpRememberPass() {
         document.querySelector('.input-sbm-true').classList.remove('sbm-form-remember-pass')
     }
 
-    if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == true) {
-        document.querySelector('.form-sbm-true').classList.remove('form-sbm-true_show')
-    }
+    // if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == true) {
+    //     document.querySelector('.form-sbm-true').classList.remove('form-sbm-true_show')
+    // }
 }
 
 function openPopUpRegistrationCloseLogin() {
