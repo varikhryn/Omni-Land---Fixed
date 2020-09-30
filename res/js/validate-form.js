@@ -128,9 +128,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             console.log(validPassNew)
-            let allValid = validPassNew && validValuePassNew;
+            let allValidNew = validPassNew && validValuePassNew;
 
-            if (allValid == false) {
+            if (allValidNew == false) {
                 console.log('false submit');
             } else {
                 console.log('true submit');
