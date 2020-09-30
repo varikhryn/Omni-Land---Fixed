@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('done');
             }
 
-            return allValid;
+            return allValidNew;
         }
     }
 
