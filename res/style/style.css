@@ -601,7 +601,8 @@ body.show-pop-up-registration,
 body.show-pop-up-enter,
 body.show-pop-up-remember-pass,
 body.show-pop-up-new-pass,
-body.show-pop-up-error-account{
+body.show-pop-up-error-account,
+body.show-pop-up-attention{
     overflow-y: hidden;
 }
 
