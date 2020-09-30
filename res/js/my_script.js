@@ -397,7 +397,7 @@ function openPopUpErrorAccount() {
     scrollDisable();
     document.body.classList.add('show-pop-up-error-account');
     setVisible(popUpErrorAccount);
-    tabIndex(popUpErrorAccount);
+    // tabIndex(popUpErrorAccount);
     window.location.hash = "#error-account";
 }
 
