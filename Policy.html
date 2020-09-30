@@ -170,6 +170,9 @@
                             <div class="input-mail-error__message">
                                 <p>Заполните поле "E-mail"</p>
                             </div>
+                            <div class="input-sbm-true">
+                                <p>На указаный E-mail отправлено письмо с дальнейшими инструкциями"</p>
+                            </div>
                         </div>
 
                         <div class="form-btn-sbm">
@@ -179,6 +182,12 @@
                                     Напомнить
                                 </p>
                             </label>
+                        </div>
+
+                        <div class="form-sbm-true">
+                            <p>
+                                Инструкции для смены пароля будут высланы на ваш E-mail
+                            </p>
                         </div>
                     </form>
 
@@ -342,6 +351,59 @@
     </div>
     <!-- pop-up registration end -->
 
+    <!-- pop-up new password start -->
+    <div class="my-pop-up__autorizade" id="section__pop-up__new_password">
+        <div class="my-pop-up__autorizade__wrapper">
+            <div class="form section__form__new_password">
+                <div class="form__wrapper">
+                    <div class="form__title">
+                        <h1>Изминение пароля</h1>
+                        <div class="close__pop-up" id="close__pop-up__new_password"></div>
+                    </div>
+
+                    <form action="POST" id="form-new_password" novalidate>
+
+                        <!-- pass -->
+                        <div class="section-all-input section-new-password-input">
+                            <div class="section-all-input__wrapper">
+                                <label for="new-password">Новый пароль</label>
+                                <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
+                                <input id="new-password" name="new-password" type="password" placeholder="Новый пароль">
+                            </div>
+                            <div class="input-pass-error__message">
+                                <p>Заполните поле "Новый пароль"</p>
+                            </div>
+                        </div>
+
+                        <!-- repeat pass -->
+                        <div class="section-all-input section-repeat-new-passport-input">
+                            <div class="section-all-input__wrapper">
+                                <label for="registration-repeat-new-password">Новый пароль еще раз</label>
+                                <img src="res/img/svg/pas.svg" alt="name" width="12px" height="11px">
+                                <input id="registration-repeat-new-password" name="registration-repeat-new-password"
+                                    type="password" placeholder="Новый пароль еще раз">
+                            </div>
+                            <div class="input-pass-repeat-error__message">
+                                <p>Повторите пароль</p>
+                            </div>
+                        </div>
+
+                        <!-- new  add-->
+                        <div class="form-btn-sbm">
+                            <label for="sbm_registration">
+                                <p>
+                                    Зарегистрироваться
+                                </p>
+                            </label>
+
+                            <input type="submit" id="sbm_registration">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- pop-up new password end -->
 
     <!--allrecords-->
     <div id="allrecords" data-tilda-export="yes" class="t-records" data-hook="blocks-collection-content-node"
