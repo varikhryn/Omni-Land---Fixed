@@ -107,6 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add('show-pop-up-error-account');
     }
 
+    if (document.body.classList.contains('show-pop-up-error-account') == true) {
+        openPopUpErrorAccount();
+        window.location.hash == "#error-account";
+    }
+
     let allRadioMesenger = document.querySelectorAll('.choose-messanger');
 
     for (let item of allRadioMesenger) {
@@ -440,8 +445,6 @@ function openPopUpRememberPass() {
     setVisible(popUpRememberPass);
     tabIndex(popUpRememberPass);
 }
-
-
 
 // remember pass close
 function closePopUpRememberPass() {
