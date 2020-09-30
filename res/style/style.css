@@ -533,6 +533,10 @@ input.input-pass-repeat-error__message{
     margin-right: 20px;
 }
 
+button.attention_btn_item{
+    margin-bottom: 0;
+}
+
 .look-for-social{
     width: 100%;
     display: flex;
