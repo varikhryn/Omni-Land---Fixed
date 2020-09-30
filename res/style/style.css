@@ -521,6 +521,7 @@ input.input-pass-repeat-error__message{
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;
+    outline: none;
 }
 
 .form-btn-sbm label p:hover,
