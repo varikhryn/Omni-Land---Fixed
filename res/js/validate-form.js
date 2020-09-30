@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('.input-sbm-true').classList.remove('sbm-form-remember-pass')
                 }
 
-                if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == true) {
-                    document.querySelector('.form-sbm-true').classList.remove('form-sbm-true_show')
+                if (document.querySelector('.form-sbm-true').classList.contains('form-sbm-true_show') == false) {
+                    document.querySelector('.form-sbm-true').classList.add('form-sbm-true_show')
                 }
             } else {
                 console.log('true');
